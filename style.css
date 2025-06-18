@@ -1,0 +1,424 @@
+/* Google Fonts fallback to Times New Roman */
+body, input, textarea, button {
+  font-family: "Times New Roman", serif;
+}
+
+/* Color Palette Variables */
+:root {
+  --color-bg: #f4f4f9;
+  --color-text: #1c1c1c;
+  --color-primary: #5e2b97;
+  --color-primary-dark: #3a1965;
+  --color-accent: #f6c90e;
+  --color-card-bg: #ffffff;
+  --color-shadow: rgba(94, 43, 151, 0.2);
+  --color-link-hover: #f6c90e;
+}
+
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e4e4e4;
+  --color-primary: #9c27b0;
+  --color-primary-dark: #6a1b9a;
+  --color-accent: #ffca28;
+  --color-card-bg: #1e1e1e;
+  --color-shadow: rgba(255, 202, 40, 0.15);
+  --color-link-hover: #ffca28;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  color: var(--color-primary);
+  position: relative;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.25rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 2px;
+  margin-top: 0.25rem;
+}
+
+a {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+a:hover,
+.navbar-nav .nav-link:hover {
+  color: var(--color-link-hover) !important;
+  text-decoration: underline;
+}
+
+.navbar {
+  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: 700;
+  color: var(--color-accent) !important;
+}
+
+header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  color: white;
+}
+
+header img {
+  border: 0.25rem solid white;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  animation: fadeIn 1.5s ease forwards;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  text-shadow: 0 2px 8px rgba(246,201,14,0.8);
+}
+
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: var(--color-card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px var(--color-shadow);
+  padding: 2rem 2.5rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+section:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px var(--color-shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px var(--color-shadow);
+}
+
+form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input, textarea {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Times New Roman", serif;
+  transition: border-color 0.3s ease;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 6px var(--color-accent);
+}
+
+input[type="email"]::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+button, .btn {
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  align-self: start;
+  box-shadow: 0 3px 8px rgba(246,201,14,0.6);
+}
+
+button:hover, .btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-accent);
+  box-shadow: 0 5px 15px rgba(94, 43, 151, 0.7);
+}
+
+#resume {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0 6px 25px var(--color-shadow);
+}
+
+#resume a.btn {
+  background-color: white;
+  color: var(--color-primary);
+  font-weight: 700;
+  border: 2px solid white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#resume a.btn:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--color-primary-dark);
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  font-style: italic;
+  user-select: none;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-card-bg);
+  border: none;
+  font-size: 1.7rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+  color: var(--color-primary-dark);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.contact-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#contactForm {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.contact-info {
+  flex: 1 1 280px;
+  min-width: 250px;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.contact-info ul.social-links {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact-info ul li a img {
+  filter: grayscale(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contact-info ul li a:hover img {
+  transform: scale(1.2);
+  filter: grayscale(0);
+}
+
+.contact-info p a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.contact-info p a:hover {
+  color: var(--color-accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  main {
+    margin: 2rem 1rem;
+    padding: 0;
+  }
+
+  section {
+    padding: 1.5rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
+
+  button, .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .theme-toggle {
+    font-size: 1.4rem;
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+/* Fix text visibility in dark mode */
+[data-theme="dark"] {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] label {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--color-link-hover);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1px solid #444;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+[data-theme="dark"] section,
+[data-theme="dark"] .card,
+[data-theme="dark"] .modal-content {
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .contact-info {
+  color: var(--color-text);
+}
