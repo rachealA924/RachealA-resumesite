@@ -119,3 +119,14 @@ if (resumeBtn) {
     resumeBtn.style.transform = "scale(1)";
   });
 }
+
+(function () {
+      emailjs.init("N-auEFwK1WuXt3-U1");
+    })();
+
+function sendEmail(form) {
+    emailjs.sendForm("racheal-200", "template_6fcxr9i", form)
+      .then(() => alert("Message sent successfully!"))
+      .catch(error => alert("Sending failed: " + JSON.stringify(error)));
+    return false;
+  }
