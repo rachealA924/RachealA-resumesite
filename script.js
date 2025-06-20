@@ -125,6 +125,11 @@ if (resumeBtn) {
 })();
 
 function sendEmail(form) {
+  // Log form data to debug what is being sent
+  console.log("Sending form data...");
+  for (let [key, value] of new FormData(form).entries()) {
+    console.log(key + ": " + value);
+  }
   emailjs.sendForm("racheal-200", "template_6fcxr9i", form)
     .then(() => {
       alert("Message sent successfully!");
