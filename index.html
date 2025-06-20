@@ -135,30 +135,35 @@
     
     <!-- Contact Form -->
     <form id="contactForm" onsubmit="return sendEmail(this);">
-       <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" id="name" class="form-control" required/>
-        <div class="invalid-feedback">Please enter your name.</div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email:</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          required
-          placeholder="you@mail.com"
-          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"
-        />
-        <div class="invalid-feedback">Please enter a valid email.</div>
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Message:</label>
-        <textarea id="message" rows="4" class="form-control" required></textarea>
-        <div class="invalid-feedback">Please enter a message.</div>
-      </div>
-      <button type="submit" class="btn btn-success">Send</button>
-    </form>
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <input type="text" id="name" name="from_name" class="form-control" required />
+    <div class="invalid-feedback">Please enter your name.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="from_email"
+      class="form-control"
+      required
+      placeholder="you@mail.com"
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"
+    />
+    <div class="invalid-feedback">Please enter a valid email.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Message:</label>
+    <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+    <div class="invalid-feedback">Please enter a message.</div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Send</button>
+</form>
+
 
     <!-- Social and Direct Contact Info -->
     <div class="contact-info">
