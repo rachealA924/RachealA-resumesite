@@ -121,12 +121,18 @@ if (resumeBtn) {
 }
 
 (function () {
-      emailjs.init("N-auEFwK1WuXt3-U1");
-    })();
+  emailjs.init("N-auEFwK1WuXt3-U1");
+})();
 
 function sendEmail(form) {
-    emailjs.sendForm("racheal-200", "template_6fcxr9i", form)
-      .then(() => alert("Message sent successfully!"))
-      .catch(error => alert("Sending failed: " + JSON.stringify(error)));
-    return false;
-  }
+  emailjs.sendForm("racheal-200", "template_6fcxr9i", form)
+    .then(() => {
+      alert("Message sent successfully!");
+      form.reset();  // clear form after successful send
+    })
+    .catch(error => {
+      console.error("EmailJS Error:", error);
+      alert("Sending failed: " + (error.text || "Unknown error"));
+    });
+  return false;  // prevent default form submit
+}
