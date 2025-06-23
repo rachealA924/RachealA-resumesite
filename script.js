@@ -16,6 +16,16 @@ toggleBtn.addEventListener('click', () => {
 });
 
 // =========================
+// Navbar Toggle for mobile
+// =========================
+const navbarToggle = document.getElementById('navbarToggle');
+const navbarCollapse = document.getElementById('navbarNav');
+
+navbarToggle.addEventListener('click', () => {
+  navbarCollapse.classList.toggle('show');
+});
+
+// =========================
 // Contact Form Validation
 // =========================
 const form = document.getElementById('contactForm');
@@ -26,7 +36,7 @@ form.addEventListener('submit', function (e) {
   const email = form.querySelector('#email');
   const message = form.querySelector('#message');
 
-  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
   let valid = true;
 
   // Name validation
@@ -70,13 +80,25 @@ form.addEventListener('submit', function (e) {
 });
 
 // =========================
-// Project Modal
+// Modal Logic (Vanilla)
 // =========================
 const projectBtn = document.getElementById('projectBtn');
-const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
-if (projectBtn && projectModal) {
+const projectModal = document.getElementById('projectModal');
+const modalClose = document.getElementById('modalClose');
+
+if (projectBtn && projectModal && modalClose) {
   projectBtn.addEventListener('click', () => {
-    projectModal.show();
+    projectModal.style.display = 'flex';
+  });
+
+  modalClose.addEventListener('click', () => {
+    projectModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === projectModal) {
+      projectModal.style.display = 'none';
+    }
   });
 }
 
@@ -106,7 +128,7 @@ faders.forEach(section => {
 });
 
 // =========================
-// Resume Button Bounce Effect
+// Resume Button Hover Effect
 // =========================
 const resumeBtn = document.querySelector('#resume a.btn');
 if (resumeBtn) {
@@ -120,12 +142,14 @@ if (resumeBtn) {
   });
 }
 
+// =========================
+// EmailJS init and send function
+// =========================
 (function () {
   emailjs.init("N-auEFwK1WuXt3-U1");
 })();
 
 function sendEmail(form) {
-  // Log form data to debug what is being sent
   console.log("Sending form data...");
   for (let [key, value] of new FormData(form).entries()) {
     console.log(key + ": " + value);
@@ -133,11 +157,11 @@ function sendEmail(form) {
   emailjs.sendForm("racheal-200", "template_6fcxr9i", form)
     .then(() => {
       alert("Message sent successfully!");
-      form.reset();  // clear form after successful send
+      form.reset();
     })
     .catch(error => {
       console.error("EmailJS Error:", error);
       alert("Sending failed: " + (error.text || "Unknown error"));
     });
-  return false;  // prevent default form submit
+  return false; // prevent default form submit
 }
