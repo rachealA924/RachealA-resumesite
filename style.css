@@ -506,3 +506,14 @@ footer {
   color: var(--color-text);
   cursor: pointer;
 }
+
+.is-invalid + .invalid-feedback {
+  display: block;
+}
+
+.invalid-feedback {
+  display: none;
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
